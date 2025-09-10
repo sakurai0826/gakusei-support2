@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -23,7 +23,7 @@ jobs:
           hugo-version: '0.101.0'
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify -b https://sakurai0826.github.io/gakusei-support2/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
